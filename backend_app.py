@@ -2,11 +2,17 @@ from flask import Flask, request
 from flask import render_template
 from flask_cors import CORS
 from get_model_graph import get_model_graph
-from backend_settings import avaliable_hardwares,avaliable_model_ids
+from backend_settings import avaliable_hardwares, avaliable_model_ids, CORS_SETTINGS
 import argparse
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={
+    r"/*": {
+        "origins": CORS_SETTINGS['CORS_ORIGINS'],
+        "methods": CORS_SETTINGS['CORS_METHODS'],
+        "allow_headers": CORS_SETTINGS['CORS_ALLOW_HEADERS']
+    }
+})
 
 
 @app.route("/")

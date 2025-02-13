@@ -43,6 +43,43 @@ Clone the LLM-Viewer repository from GitHub:
 Install requirements
 ```pip install transformers flask flask_cors easydict```
 
+## Local Development
+
+### Running the Backend
+
+1. Install the Python dependencies:
+```bash
+pip install transformers flask flask_cors easydict
+```
+
+2. Start the Flask backend server:
+```bash
+python backend_app.py
+```
+The backend server will run on `http://127.0.0.1:5000` by default.
+
+### Running the Frontend
+
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+
+2. Install Node.js dependencies:
+```bash
+npm install
+```
+
+3. Start the Vite development server:
+```bash
+npm run dev
+```
+The frontend will be available at `http://localhost:5173`.
+
+After starting both servers, you can access the web interface at `http://localhost:5173` and it will communicate with the backend at `http://127.0.0.1:5000`.
+
+## CLI Usage
+
 To analyze an LLM using LLM-Viewer in command line interface (cli), run the following command:
 
 ```bash

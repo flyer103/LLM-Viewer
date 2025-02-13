@@ -17,3 +17,18 @@ avaliable_model_ids_sources = {
 }
 avaliable_model_ids = [_ for _ in avaliable_model_ids_sources.keys()]
 avaliable_hardwares = [_ for _ in hardware_params.keys()]
+
+# Add these settings
+CORS_SETTINGS = {
+    'CORS_ORIGINS': [
+        'http://localhost:5173',  # Vite's default dev server
+        'http://127.0.0.1:5173',  # Vite's default dev server
+        'http://localhost:5000',  # Flask default
+        'http://127.0.0.1:5000',  # Flask default
+        'http://api.llm-viewer.com',  # Production API
+        'https://api.llm-viewer.com',  # Production API (HTTPS)
+        '*'  # Allow all origins (use this carefully in development only)
+    ],
+    'CORS_METHODS': ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    'CORS_ALLOW_HEADERS': ['Content-Type', 'Authorization', 'X-Requested-With']
+}
