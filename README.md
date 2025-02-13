@@ -76,7 +76,7 @@ npm run dev
 ```
 The frontend will be available at `http://localhost:5173`.
 
-After starting both servers, you can access the web interface at `http://localhost:5173` and it will communicate with the backend at `http://127.0.0.1:5000`.
+After starting both servers, you can access the web interface at `http://localhost:5173`. By default, the frontend will connect to the local backend at `http://127.0.0.1:5000`. You can change the backend server in the UI header if needed.
 
 ## CLI Usage
 
