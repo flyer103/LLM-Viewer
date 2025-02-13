@@ -35,14 +35,6 @@ As shown in the Figure, the workflow consists of the following steps:
 To use LLM-Viewer in a web browser, go to the web-site [LLM-Viewer Web](http://llm-viewer.com).
 You can click the node to get the detailed analysis of the layer.
 
-## CLI Usage
-
-Clone the LLM-Viewer repository from GitHub: 
-```git clone https://github.com/hahnyuan/LLM-Viewer.git   ```
-
-Install requirements
-```pip install transformers flask flask_cors easydict structlog pytz```
-
 ## Local Development
 
 ### Running the Backend
@@ -79,6 +71,12 @@ The frontend will be available at `http://localhost:5173`.
 After starting both servers, you can access the web interface at `http://localhost:5173`. By default, the frontend will connect to the local backend at `http://127.0.0.1:5000`. You can change the backend server in the UI header if needed.
 
 ## CLI Usage
+
+Clone the LLM-Viewer repository from GitHub: 
+```git clone https://github.com/hahnyuan/LLM-Viewer.git   ```
+
+Install requirements
+```pip install transformers flask flask_cors easydict structlog pytz```
 
 To analyze an LLM using LLM-Viewer in command line interface (cli), run the following command:
 
