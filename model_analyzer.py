@@ -6,6 +6,8 @@ from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM
 from utils import str_number, str_number_time
 import math
 
+from logger import logger
+
 ALL_DATA_NAMES = [
     "OPs",
     "memory_access",
@@ -23,6 +25,8 @@ class ModelAnalyzer:
         """
         source: 'huggingface' or 'DiT'
         """
+        self.logger = logger.bind(model_id=model_id, hardware=hardware, source=source)
+
         self.model_id = model_id
         self.hardware = hardware
         if config_file is None:
@@ -34,7 +38,7 @@ class ModelAnalyzer:
                     config_file = "configs/" + file
                 # print(f"auto search config file {config_file} {file} {model_id}")
         assert config_file is not None, "config file is not found, please specify it manually."
-        print(f"use config file {config_file} for {model_id}")
+        print(f"use config file {config_file} for {model_id} and source is {source}")
         if source == "huggingface":
             self.model_params = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
         else:
@@ -44,6 +48,8 @@ class ModelAnalyzer:
             module = importlib.import_module(f"model_params.{source}")
             self.model_params = module.model_params[model_id]
         self.config = importlib.import_module(config_file.replace("/", ".").replace(".py", ""))
+
+        self.logger.info("model_params", model_params=self.model_params)
 
         # temporary variables
         self.results = None

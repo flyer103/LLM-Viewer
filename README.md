@@ -41,7 +41,7 @@ Clone the LLM-Viewer repository from GitHub:
 ```git clone https://github.com/hahnyuan/LLM-Viewer.git   ```
 
 Install requirements
-```pip install transformers flask flask_cors easydict```
+```pip install transformers flask flask_cors easydict structlog pytz```
 
 ## Local Development
 
