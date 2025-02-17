@@ -71,7 +71,7 @@ class ModelAnalyzer:
         store_kv_cache=0,
     ):
 
-        bandwidth, max_OPS, onchip_buffer = self.get_hardware_info()
+        bandwidth, max_OPS, _ = self.get_hardware_info()
         memory_access = load_weight + load_act + store_act + load_kv_cache + store_kv_cache
         arithmetic_intensity, performance, bound = roofline_analyze(bandwidth, max_OPS, OPs, memory_access)
         inference_time = OPs / performance
